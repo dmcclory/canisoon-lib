@@ -1,20 +1,4 @@
-
-
-interface Feature {
-  name: string;
-  slug: string;
-  globalPercentage: number;
-  description: string;
-  categories: string[];
-}
-
-const caniuseUrl = (f: Feature) => {
-  return `https://caniuse.com/${f.slug}`
-}
-
-const asLine = (f: Feature) => {
-  return `${f.name}: ${f.globalPercentage} (${f.categories.join(", ")}) - refer to: ${caniuseUrl(f)}`
-}
+import { Feature, asLine} from './src/feature';
 
 let e = {
   name: "dialog",
@@ -23,5 +7,4 @@ let e = {
   description: "a cool thing",
   categories: ['DOM', 'HTML5']
 }
-
 console.log(asLine(e))
