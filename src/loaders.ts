@@ -1,7 +1,6 @@
 import { readFileSync } from 'fs';
 
 import { Feature } from './feature'
-import { CaniuseData  } from './builder'
 
 export const loadDataset = (path: string): Feature[] => {
 
@@ -20,7 +19,7 @@ export const loadDataset = (path: string): Feature[] => {
   })
 }
 
-export const loadRawDataset = (path: string): CaniuseData => {
+export const loadRawDataset = (path: string) => {
   const data = readFileSync(path)
   const res = JSON.parse(data.toString())
   return res;

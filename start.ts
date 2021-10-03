@@ -1,4 +1,4 @@
-import { loadDataset } from './src/loaders';
+import { buildFromFile } from './src/builder';
 import { Feature, asLine} from './src/feature';
 
 let e = {
@@ -9,6 +9,6 @@ let e = {
   categories: ['DOM', 'HTML5']
 }
 
-let dataset = loadDataset('data/data-2.0.json');
+let dataset = buildFromFile('data/data-2.0.json');
 
-dataset.slice(0, 10).map( f => console.log(asLine(f)) );
+Object.values(dataset).slice(0, 10).map( f => console.log(asLine(f)) );

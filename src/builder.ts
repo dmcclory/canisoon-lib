@@ -1,4 +1,5 @@
 import { Feature } from './feature';
+import { loadRawDataset } from './loaders';
 
 export interface CaniuseFeatureData {
   title: string;
@@ -26,4 +27,10 @@ export const build = (reports: CaniuseData): { [index: string]:  Feature } => {
       }]
     })
   ))
+}
+
+
+export const buildFromFile = (path: string):  { [index: string]:  Feature } => {
+  const { data } = loadRawDataset(path);
+  return build(data);
 }
