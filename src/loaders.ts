@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 
 import { Feature } from './feature'
+import { CaniuseData  } from './builder'
 
 export const loadDataset = (path: string): Feature[] => {
 
@@ -12,9 +13,15 @@ export const loadDataset = (path: string): Feature[] => {
     return {
       slug: k,
       name: d.title,
-      globalPercentage: d.usage_perc_y,
+      latestPercentage: d.usage_perc_y,
       description: d.description,
       categories: d.categories,
     }
   })
+}
+
+export const loadRawDataset = (path: string): CaniuseData => {
+  const data = readFileSync(path)
+  const res = JSON.parse(data.toString())
+  return res;
 }
