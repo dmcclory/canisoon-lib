@@ -1,10 +1,16 @@
 
+export interface UsageSnapshot {
+  percentage: number;
+  date: Date;
+};
+
 export interface Feature {
   name: string;
   slug: string;
   latestPercentage: number;
   description: string;
   categories: string[];
+  usageSnapshots: UsageSnapshot[];
 }
 
 const caniuseUrl = (f: Feature) => {
