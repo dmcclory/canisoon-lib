@@ -1,14 +1,18 @@
 import { buildFromFile } from './src/builder';
-import { Feature, asLine} from './src/feature';
+import { Feature, asLine, detailView} from './src/feature';
 
-let e = {
-  name: "dialog",
-  slug: "dialog",
-  globalPercentage: 74.81,
-  description: "a cool thing",
-  categories: ['DOM', 'HTML5']
-}
 
-let dataset = buildFromFile('data/data-2.0.json');
+// obviously I should extract the dates from the file name
+// (or git, eventually)
+let datasets = [
+ { date: new Date(2021, 10, 5),   path: 'data/2021_09_05-data-2.0.json' },
+ { date: new Date(2021, 10, 12),  path: 'data/2021_09_12-data-2.0.json' },
+ { date: new Date(2021, 10, 19),  path: 'data/2021_09_19-data-2.0.json' },
+ { date: new Date(2021, 10, 26),  path: 'data/2021_09_26-data-2.0.json' },
+]
+
+const dataset = buildFromFile(datasets)
 
 Object.values(dataset).slice(0, 10).map( f => console.log(asLine(f)) );
+
+console.log(detailView(dataset.aac))
