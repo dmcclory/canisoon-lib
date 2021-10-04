@@ -57,7 +57,10 @@ export const build = (reports: CaniuseSnapshot[]): FeatureSummary => {
 }
 
 
-export const buildFromFile = (path: string): FeatureSummary => {
-  const { data } = loadRawDataset(path);
-  return build(data);
+export const buildFromFile = (datasets: {date: Date, path: string}[]): FeatureSummary => {
+  return build(datasets.map((d: {date: Date, path: string}) => {
+    return(
+      { date: d.date, data: loadRawDataset(d.path) }
+    )
+  }))
 }
