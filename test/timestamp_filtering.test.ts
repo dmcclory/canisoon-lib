@@ -1,4 +1,4 @@
-import { latestHashPerWeek } from "../src/something";
+import { latestHashPerWeek } from "../src/timestamp_filtering";
 
 test("partitition by week splits the", () => {
   const hashes = [

@@ -3,7 +3,7 @@ import { writeFileSync } from  'fs';
 
 import { fetchRepo, fetchAllHashes, getFileContents, checkoutRevision } from './src/git_loader';
 
-import { latestHashPerWeek }  from './src/something';
+import { latestHashPerWeek }  from './src/timestamp_filtering';
 
 import { buildFromFile } from './src/builder';
 import { findDatasets } from './src/loaders';
