@@ -1,17 +1,4 @@
-
-export interface UsageSnapshot {
-  percentage: number;
-  date: Date;
-};
-
-export interface Feature {
-  name: string;
-  slug: string;
-  latestPercentage: number;
-  description: string;
-  categories: string[];
-  usageSnapshots: UsageSnapshot[];
-}
+import { UsageSnapshot, Feature } from './types'
 
 const caniuseUrl = (f: Feature) => {
   return `https://caniuse.com/${f.slug}`

@@ -7,10 +7,7 @@ import {
 } from 'date-fns';
 
 
-interface TimestampedHash {
-  date: Date;
-  hash: string;
-};
+import { TimestampedHash } from './types';
 
 
 const latestBefore = (sortedHashes: TimestampedHash[], date: Date) => {

@@ -1,8 +1,6 @@
 import { readFileSync, readdirSync } from 'fs';
 
-import { Feature } from './feature';
-
-import { CaniuseData, FeatureSummary } from './builder';
+import { CaniuseData, Feature, FeatureSummary } from './types';
 
 import { DATASET_PATH } from './constants'
 

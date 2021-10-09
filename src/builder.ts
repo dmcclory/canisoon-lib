@@ -1,26 +1,13 @@
-import { Feature, UsageSnapshot } from './feature';
 import { loadRawDataset } from './loaders';
 
-export interface CaniuseFeatureData {
-  title: string;
-  usage_perc_y: number;
-  description: string;
-  categories: string[];
-}
-
-
-export interface CaniuseData { 
-  [index: string]: CaniuseFeatureData
-}
-
-export interface CaniuseSnapshot {
-  date: Date;
-  data: CaniuseData
-}
-
-export interface FeatureSummary {
-  [index: string]:  Feature;
-}
+import {
+  CaniuseFeatureData,
+  CaniuseSnapshot,
+  CaniuseData,
+  FeatureSummary,
+  Feature,
+  UsageSnapshot
+} from './types';
 
 export const extractHistoricalPercentages = (reports: CaniuseSnapshot[]): {[index: string]: UsageSnapshot[]} => {
   const cool = {} as { [index: string]: UsageSnapshot[] };
