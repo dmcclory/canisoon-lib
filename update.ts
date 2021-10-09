@@ -5,6 +5,8 @@ import { fetchRepo, fetchAllHashes, getFileContents, checkoutRevision } from './
 
 import { latestHashPerWeek }  from './src/something';
 
+import { buildFromFile } from './src/builder';
+import { findDatasets } from './src/loaders';
 
 const getRelevantHashes = async () => {
   await fetchRepo();
@@ -16,7 +18,7 @@ const getRelevantHashes = async () => {
 }
 
 
-const createDataFiles = async() => {
+const createDataFiles = async () => {
   const sundayDatasets = await getRelevantHashes()
 
   for (const {hash, date} of sundayDatasets) {
@@ -27,5 +29,12 @@ const createDataFiles = async() => {
   }
 }
 
-// getRelevantHashes()
-createDataFiles()
+const rebuildDataset = async () => {
+  console.log('loading the weekly datasets...')
+  await createDataFiles()
+  console.log('writing the ouptut...')
+  const dataset = buildFromFile(findDatasets('data/'))
+  writeFileSync('dataset.json', JSON.stringify(dataset))
+}
+
+rebuildDataset()
