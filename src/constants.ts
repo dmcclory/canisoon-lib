@@ -1,3 +1,3 @@
 
 
-export const DATASET_PATH = 'src/dataset.json'
+export const DATASET_PATH = 'datasets/dataset.json'
