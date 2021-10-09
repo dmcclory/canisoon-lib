@@ -15,6 +15,10 @@ export const fetchRepo = async () => {
   if ( !existsSync(`${REPO_PATH}/.git/index`)) {
     await rm(`./${REPO_PATH}`, { recursive: true, force: true})
     await git.clone(REPO_URL, REPO_PATH)
+  } else {
+    await git.cwd({ path: REPO_PATH, root: true})
+    await git.checkout('main')
+    await git.pull()
   }
 }
 
