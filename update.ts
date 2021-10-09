@@ -8,6 +8,8 @@ import { latestHashPerWeek }  from './src/something';
 import { buildFromFile } from './src/builder';
 import { findDatasets } from './src/loaders';
 
+import { DATASET_PATH } from './src/constants';
+
 const getRelevantHashes = async () => {
   await fetchRepo();
   const hashes = await fetchAllHashes()
@@ -34,7 +36,7 @@ const rebuildDataset = async () => {
   await createDataFiles()
   console.log('writing the ouptut...')
   const dataset = buildFromFile(findDatasets('data/'))
-  writeFileSync('dataset.json', JSON.stringify(dataset))
+  writeFileSync(DATASET_PATH, JSON.stringify(dataset))
 }
 
 rebuildDataset()

@@ -3,7 +3,7 @@ import { asLine, detailView} from './src/feature';
 
 
 
-const dataset = loadDataset('dataset.json');
+const dataset = loadDataset();
 
 Object.values(dataset).slice(0, 10).map( f => console.log(asLine(f)) );
 

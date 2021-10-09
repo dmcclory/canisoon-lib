@@ -4,6 +4,8 @@ import { Feature } from './feature';
 
 import { CaniuseData, FeatureSummary } from './builder';
 
+import { DATASET_PATH } from './constants'
+
 export const loadRawDataset = (path: string): CaniuseData => {
   const data = readFileSync(path)
   const res = JSON.parse(data.toString())
@@ -23,7 +25,7 @@ export const findDatasets = (path: string): {date: Date, path: string}[] => {
   return withRawDates
 }
 
-export const loadDataset = (path: string): FeatureSummary => {
-  const data = readFileSync(path)
+export const loadDataset = (): FeatureSummary => {
+  const data = readFileSync(DATASET_PATH)
   return JSON.parse(data.toString())
 }
