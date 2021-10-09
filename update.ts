@@ -12,7 +12,6 @@ const getRelevantHashes = async () => {
 
   const splitIntoWeeks = latestHashPerWeek(hashes)
 
-  console.log(splitIntoWeeks.slice(0, 10))
   return splitIntoWeeks
 }
 
@@ -24,6 +23,7 @@ const createDataFiles = async() => {
     await checkoutRevision(hash)
     const data = await getFileContents('fulldata-json/data-2.0.json')
     writeFileSync(`data/${format(date, 'yyyy_MM_dd')}-data-2.0.json`, data)
+    process.stdout.write('.')
   }
 }
 
