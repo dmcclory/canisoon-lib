@@ -1,3 +1,6 @@
 node_modules
 data
 repodata/
+dist
+docs
+build
