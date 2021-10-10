@@ -2,13 +2,17 @@
   "name": "canisoon-lib",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "Dan McClory",
+  "keywords": [],
   "license": "ISC",
+  "main": "dist/canisoon-lib.cjs.js",
+  "module": "dist/canisoon-lib.esm.js",
+  "browser": "dist/canisoon-lib.umd.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
