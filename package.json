@@ -11,9 +11,11 @@
   "scripts": {
     "test": "jest",
     "build": "rollup -c",
+    "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
     "dev": "rollup -c -w"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.18.15",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-typescript": "^8.2.5",
