@@ -37,6 +37,7 @@ export const build = (reports: CaniuseSnapshot[]): FeatureSummary => {
         latestPercentage: v.usage_perc_y,
         description: v.description,
         categories: v.categories,
+        links: v.links,
         usageSnapshots: historicalPercentages[k],
       }]
     })

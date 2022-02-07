@@ -3,12 +3,18 @@ export interface UsageSnapshot {
   date: Date;
 };
 
+export interface Link {
+  url: string;
+  title: string;
+}
+
 export interface Feature {
   name: string;
   slug: string;
   latestPercentage: number;
   description: string;
   categories: string[];
+  links: Link[];
   usageSnapshots: UsageSnapshot[];
 }
 
@@ -18,6 +24,7 @@ export interface CaniuseFeatureData {
   usage_perc_y: number;
   description: string;
   categories: string[];
+  links: Link[];
 }
 
 

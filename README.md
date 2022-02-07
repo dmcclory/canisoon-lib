@@ -14,3 +14,12 @@ yarn ts-node update.ts
 
 npm publish
 ```
+
+
+# development
+
+to run the tests:
+
+```
+npm run test
+```

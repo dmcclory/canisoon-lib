@@ -2,8 +2,8 @@ import { build, extractHistoricalPercentages } from "../src/builder";
 
 
 const laterData = {
-  wow: { title: "Wow", usage_perc_y: 65, description: "a wonderful feature", categories: ["a", "b"] },
-  cool: { title: "Cool", usage_perc_y: 95, description: "a very cool feature", categories: ["a", "b"] },
+  wow: { title: "Wow", usage_perc_y: 65, description: "a wonderful feature", categories: ["a", "b"], links: [{"url":"https://en.wikipedia.org/wiki/Advanced_Audio_Coding","title":"Wikipedia article"}] },
+  cool: { title: "Cool", usage_perc_y: 95, description: "a very cool feature", categories: ["a", "b"], links: [] },
 }
 
 const earlierData = {
@@ -28,6 +28,8 @@ test("build returns a map of features", () => {
   expect(res.latestPercentage).toBe(65)
   expect(res.description).toBe("a wonderful feature")
   expect(res.categories).toStrictEqual(["a", "b"])
+  expect(res.links.length).toStrictEqual(1)
+  expect(Object.keys(res.links[0]).includes("url")).toBeTruthy()
 })
 
 
